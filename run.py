@@ -1,4 +1,11 @@
-question_answer_list = [
+import random
+game_list = []
+
+def get_question_list():
+    """
+    Gets a list of questions and answers to be used in the game
+    """
+    question_answer_list = [
     {
         "question": "how many days are in a year? (not counting leap years)",
         "1": "31 days",
@@ -20,7 +27,8 @@ question_answer_list = [
         "3": "Pasta",
         "4": "21"
     },
-]
+    ]
+    return question_answer_list
 
 
 def print_dictionary():
@@ -62,7 +70,18 @@ def select_random_question():
     """
     Selects a random question from the list
     """
-    print("Selecting random question!")
+    # get the question and answers list
+    q_list = get_question_list()
+    
+    # selects random question from q_list and adds them to game_list
+    for x in range(10):
+        # get a random number based on the length of the question list
+        random_num = random.randint(0, len(q_list) - 1)
+        q_value = q_list[random_num].values()
+        game_list.append(f"Question {random_num + 1}")
+        print(x + 1)
+        print(game_list)
+        # print(f"Question number {random_num + 1} was chosen!\n{q_value}")
 
 
 def write_question():
