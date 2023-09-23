@@ -176,6 +176,7 @@ def start_game():
     start_question = ""
     while start_question != "y" or "n":
         start_question = input("[y/n]: ").lower()
+        start_question = start_question.strip()
         if start_question == "y":
             print("\nStarting game!")
             select_random_question()
@@ -221,10 +222,35 @@ def write_question():
     """
     Prints a question and asks for input
     """
+    # write 10 questions that require user input
     for x in range(10):
-        key = list(game_list[x].keys())
+        answer_loop = 0
         value = list(game_list[x].values())
-        print(f"question {x + 1}: {value}")
+        print(f"\nQuestion {x + 1}: {value[0]}\n")
+        print(f"1: {value[1]}")
+        print(f"2: {value[2]}")
+        print(f"3: {value[3]}")
+        print(f"4: {value[4]}\n")
+        # Check if answer is 1, 2, 3 or 4 else invalid answer
+        while answer_loop != 1:
+            answer = input("Answer:")
+            answer = answer.strip()
+            if answer == "1":
+                user_answers.append(answer)
+                answer_loop = 1
+            elif answer == "2":
+                user_answers.append(answer)
+                answer_loop = 1
+            elif answer == "3":
+                user_answers.append(answer)
+                answer_loop = 1
+            elif answer == "4":
+                user_answers.append(answer)
+                answer_loop = 1
+            else:
+                print("Enter a valid answer (1, 2, 3, 4)")
+                continue
+    check_if_correct()
 
 
 def check_if_correct():
