@@ -1,32 +1,155 @@
 import random
+# list for the questions in the game
+random_order = []
 game_list = []
+user_answers = []
+
 
 def get_question_list():
     """
-    Gets a list of questions and answers to be used in the game
+    Ceates a list of questions and answers to be used in the game
     """
     question_answer_list = [
-    {
-        "question": "how many days are in a year? (not counting leap years)",
-        "1": "31 days",
-        "2": "400 days",
-        "3": "365 days x",
-        "4": "12 days"
-    },
-    {
-        "question": "what fruit is round and orange?",
-        "1": "Pear",
-        "2": "Banana",
-        "3": "Apple",
-        "4": "Orange x"
-    },
-    {
-        "question": "what is the answer to the ultimate question of life the universe and everything?",
-        "1": "Cheese",
-        "2": "42 x",
-        "3": "Pasta",
-        "4": "21"
-    },
+        {
+            "question": "How many days are in a year?",
+            "1": "31 days",
+            "2": "400 days",
+            "3 x": "365 days",
+            "4": "12 days"
+        },
+        {
+            "question": "What fruit is round and orange?",
+            "1": "Pear",
+            "2": "Banana",
+            "3": "Apple",
+            "4 x": "Orange"
+        },
+        {
+            "question": "What is the answer to the ultimate question of life the universe and everything?",
+            "1 x": "42",
+            "2": "Pizza",
+            "3": "3.1415926535...",
+            "4": "Chocolate"
+        },
+        {
+            "question": "What is the capital of Australia?",
+            "1": "New York",
+            "2": "Ottawa",
+            "3": "Sydney",
+            "4 x": "Canberra"
+        },
+        {
+            "question": 'Who wrote the novel "1984"?',
+            "1": "J.R.R Tolkein",
+            "2 x": "George Orwell",
+            "3": "Agatha Christie",
+            "4": "Dr. Seuss"
+        },
+        {
+            "question": "What is the chemical symbol for gold?",
+            "1": "H2O",
+            "2": "C",
+            "3 x": "Au",
+            "4": "Go"
+        },
+        {
+            "question": "What year did the Titanic sink?",
+            "1": "1999",
+            "2 x": "1912",
+            "3": "1876",
+            "4": "1997"
+        },
+        {
+            "question": "What is the largest planet in our solar system?",
+            "1": "Pluto",
+            "2": "Earth",
+            "3": "The sun",
+            "4 x": "Jupiter"
+        },
+        {
+            "question": "Who painted the Mona Lisa?",
+            "1 x": "Leonardo da Vinci",
+            "2": "Leonardo DiCaprio",
+            "3": "Vincent van Gogh",
+            "4": "Michelangelo"
+        },
+        {
+            "question": "What is the tallest mountain in the world?",
+            "1": "K2",
+            "2": "Kilimanjaro",
+            "3 x": "Mount Everest",
+            "4": "Fuji"
+        },
+        {
+            "question": "What is the largest mammal in the world?",
+            "1": "An elephant",
+            "2": "A giraffe",
+            "3 x": "The blue whale",
+            "4": "An ostrich"
+        },
+        {
+            "question": 'Who wrote the play "Romeo and Juliet"?',
+            "1": "M. Night Shyamalan",
+            "2 x": "William Shakespeare",
+            "3": "Lin-Manuel Miranda",
+            "4": "Sofokles"
+        },
+        {
+            "question": "What gas do plants absorb from the atmosphere and use in photosynthesis?",
+            "1": "Water (H2O)",
+            "2": "Oxygen (O)",
+            "3 x": "Carbon dioxide (CO2)",
+            "4": "Hydrogen (H)"
+        },
+        {
+            "question": "What is the capital of Brazil?",
+            "1 x": "Brasilia",
+            "2": "Sao Paulo",
+            "3": "Rio de Janeiro",
+            "4": "Salvador"
+        },
+        {
+            "question": "What is the chemical symbol for iron?",
+            "1": "Ir",
+            "2": "Cl",
+            "3": "Au",
+            "4 x": "Fe"
+        },
+        {
+            "question": "Who was the first woman to fly solo across the Atlantic Ocean?",
+            "1 x": "Amelia Earhart",
+            "2": "Jane Austen",
+            "3": "Catherine the Great",
+            "4": "Marie Curie"
+        },
+        {
+            "question": "What is the largest organ in the human body?",
+            "1": "The liver",
+            "2 x": "The skin",
+            "3": "The brain",
+            "4": "The heart"
+        },
+        {
+            "question": 'Which planet is known as the "Red Planet"?',
+            "1": "Jupiter",
+            "2": "Mercury",
+            "3": "Venus",
+            "4 x": "Mars"
+        },
+        {
+            "question": 'Who is the author of "To Kill a Mockingbird"?',
+            "1 x": "Harper Lee",
+            "2": "Jane Austen",
+            "3": "J.R.R Tolkein",
+            "4": "J.K. Rowling"
+        },
+        {
+            "question": "What is the capital of England?",
+            "1": "Liverpool",
+            "2": "Birmingham",
+            "3 x": "London",
+            "4": "Oxford"
+        }
     ]
     return question_answer_list
 
@@ -35,9 +158,10 @@ def print_dictionary():
     """
     (TEST) Prints the dictionary questions and answers to the console
     """
-    for x in range(len(question_answer_list)):
+    # get the question list
+    for x in range(len(get_question_list())):
         " Define dictionary "
-        dictionary = question_answer_list[x]
+        dictionary = get_question_list()[x]
         print(f"Question #{x + 1}")
         for question, answer in dictionary.items():
             print(f"{question}: {answer}")
@@ -68,27 +192,39 @@ def start_game():
 
 def select_random_question():
     """
-    Selects a random question from the list
+    Selects ten random questions from the list and adds them to the game_list
     """
-    # get the question and answers list
-    q_list = get_question_list()
-    
-    # selects random question from q_list and adds them to game_list
-    for x in range(10):
+    x = 0
+    while x != 10:
         # get a random number based on the length of the question list
-        random_num = random.randint(0, len(q_list) - 1)
-        q_value = q_list[random_num].values()
-        game_list.append(f"Question {random_num + 1}")
-        print(x + 1)
-        print(game_list)
-        # print(f"Question number {random_num + 1} was chosen!\n{q_value}")
+        random_num = random.randint(0, len(get_question_list()) - 1)
+        # checks if there is repetition and pervents it
+        if len(random_order) == 0:
+            random_order.append(random_num)
+            x += 1
+        elif random_num in random_order:
+            continue
+        elif x == 10:
+            x = 10
+            break
+        else:
+            random_order.append(random_num)
+            x += 1
+        # add the question to the games and question list
+    for i in random_order:
+        dictionary = get_question_list()[i]
+        game_list.append(dictionary)
+    write_question()
 
 
 def write_question():
     """
     Prints a question and asks for input
     """
-    print("Is this a question?")
+    for x in range(10):
+        key = list(game_list[x].keys())
+        value = list(game_list[x].values())
+        print(f"question {x + 1}: {value}")
 
 
 def check_if_correct():
