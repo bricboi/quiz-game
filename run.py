@@ -3,6 +3,8 @@ import random
 random_order = []
 game_list = []
 user_answers = []
+correct_answer = 0
+wrong_answer = 0
 
 
 def get_question_list():
@@ -175,7 +177,7 @@ def start_game():
     print("Would you like to play the game? y=yes n=no")
     start_question = ""
     while start_question != "y" or "n":
-        start_question = input("[y/n]: ").lower()
+        start_question = input("[y/n]:\n").lower()
         start_question = start_question.strip()
         if start_question == "y":
             print("\nStarting game!")
@@ -233,7 +235,7 @@ def write_question():
         print(f"4: {value[4]}\n")
         # Check if answer is 1, 2, 3 or 4 else invalid answer
         while answer_loop != 1:
-            answer = input("Answer:")
+            answer = input("Answer:\n")
             answer = answer.strip()
             if answer == "1":
                 user_answers.append(answer)
@@ -255,16 +257,28 @@ def write_question():
 
 def check_if_correct():
     """
-    Checks if the answer is correct
+    Checks if the answer is correct and adds to scores
     """
-    print("Checking if the answer is correct")
+    global correct_answer
+    global wrong_answer
+    # Calculate how many answers are correct and incorrect
+    for x in range(10):
+        key = list(game_list[x].keys())
+        i = int(user_answers[x])
+        # Adds correct/incorrect answers to score counters
+        if "x" in key[i]:
+            correct_answer += 1
+        else:
+            wrong_answer += 1
+    print("Calculating result!")
+    write_result()
 
 
-def calculate_result():
+def write_result():
     """
     Calculates the result and adds to score
     """
-    print("calculating! score is still 0!")
+    print(f"\n\nYou had {correct_answer} correct answers and {wrong_answer} incorrect answers")
 
 
 start_game()
