@@ -1,10 +1,10 @@
 # Quiz game App!
 
-This is a terminal based quiz game made for people who wish to play a simple quiz game. It is designed to be a fun game experiance and to also be a learning experiance to the user. The game selects ten random questions and takes an input from the user. It then calculates how many answers were correct and incorrect and writes it to the user.
+This is a terminal based quiz game made for people who wish to play a simple quiz game. It is designed to be a fun game experiance and to also be a learning experiance for the user. The game selects ten random questions and takes an input from the user. It then calculates how many answers were correct and incorrect and displays it to the user.
 
-It can be used in for exaple schools who want to have an easy and fun way to check how much the students know about a subject. If one writes a specific list of questions, it could also be used by students, who wish to quiz themselves about topics on upcoming tests.
-
-![Image of the Terminal start screen](screenshots/start.png)  
+Some use cases for this app includes:  
+It can be used in for example, schools who want to have an easy and fun way to check how much the students know about a subject.  
+Or if one writes a specific list of questions, it could also be used by students, who wish to quiz themselves about topics on upcoming tests.  
 
 ----------
 
@@ -21,22 +21,22 @@ If the user writes y as the answer, they are met with a message saying "Starting
 
 #### Input N or n
 
-![Image of message answering n or N](screenshots/valid_start2.png)
+![Image of message answering n or N](screenshots/valid_start2.png)  
 If the user writes n as the answer, they will be met with a message that says "You chose to quit, have a nice day!". This means that the game has not started and nothing more will be loaded.
 
 ### Invalid input:
 
 #### Example: Start input
 
-![Image of an example invalid start input](screenshots/invalid-start.png)
-On the start screen the user can only answer y or n, when an invalid input is given it
+![Image of an example invalid start input](screenshots/invalid-start.png)  
+On the start screen the user can only answer y or n (uppercase letters or spaces does not matter). When an invalid input is given, the terminal will respond with: "Enter a valid result! [y/n]". This gives the user another chance to answer whether they wish to play the game or quit, in the case that they entered the wrong input.  
+This will be repeated until the user enters a valid input.
 
 #### Example: Answer input
 
 ![Image of an Invalid input message](screenshots/invalid_input.png)  
-Appart from the start screen. The user can only give four answers during the course of the game, the numbers 1, 2, 3 or 4.
-
-When an invalid input is given the terminal will respond with: "Enter a valid answer (1, 2, 3, 4)", and will allow the player to enter an number. This can be repeated until the user enters a valid input.
+Appart from the start screen. The user can only give four answers during the course of the game, the numbers 1, 2, 3 or 4. When an invalid input is given, the terminal will respond with: "Enter a valid answer (1, 2, 3, 4)", and will allow the player to enter an number.  
+This will be repeated until the user enters a valid input.
 
 ### Random questions:
 
@@ -50,7 +50,7 @@ When the user has completed the game by answering all the questions. The game wi
 
 ### Possible features:
 
-* API connection to a Google Form so that questions and answers can be submitted which gives more variation to questions asked, or can make it usefull in other subjects eg: studying for exams.
+* API connection to a Google Form so that questions and answers can be submitted which gives more variation to questions asked, or can make it usefull in other cases eg. studying for exams.
 * Game asks user if they wish to restart the game once it is over
 * Game asks if user wants to play the game once n has been given so as to not have to rerun the program
 
@@ -78,7 +78,7 @@ The game has been tested on different web browsers such ass oprah, chrome, edge 
 
 ### Credits:
 
-* Code written in the python "run" file and screenshots were made by me
+* Code written in the python "run" file and all screenshots were made by me
 * All other files were provided by Code Institute
 
 ----------
@@ -91,5 +91,5 @@ The game has been tested on different web browsers such ass oprah, chrome, edge 
   * Add python and nodejs buildpacks
   * Navigate to the deploy tab
   * Choose the GitHub deployment method, and connect to the github repository
-  * Deploy tab select branch main
+  * On the deploy tab make sure that the selected branch is main
   * Click deploy branch and the Site becomes live: [Heroku Quiz game link](https://my-python-quiz-game-01ad349deb74.herokuapp.com)
