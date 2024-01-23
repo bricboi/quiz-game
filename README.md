@@ -35,13 +35,13 @@ This will be repeated until the user enters a valid input.
 #### Example: Answer input
 
 ![Image of an Invalid input message](screenshots/invalid_input.png)  
-Appart from the start screen. The user can only give four answers during the course of the game, the numbers 1, 2, 3 or 4. When an invalid input is given, the terminal will respond with: "Enter a valid answer (1, 2, 3, 4)", and will allow the player to enter an number.  
+Much like the start screen. The user can only give four answers during the course of the game, the numbers 1, 2, 3 or 4. When an invalid input is given, the terminal will respond with: "Enter a valid answer (1, 2, 3, 4)", and will allow the player to enter an number.  
 This will be repeated until the user enters a valid input.
 
 ### Random questions:
 
 ![Image of a possible question](screenshots/ex_question.png)  
-The game has a list of questions, and answers to those questions. It can select a set of 10 random questions from this list and displayes them in a random sequence, where the user can then give their answer.
+The game has a list of questions, and answers to those questions. It can select a set of 10 random questions from this list and displays them in a random sequence, where the user can then give their answer.
 
 ### Answer calculation:
 
@@ -60,7 +60,7 @@ When the user has completed the game by answering all the questions. The game wi
 
 ### Browser testing:
 
-The game has been tested on different web browsers such ass oprah, chrome, edge etc. The game works as it should and functions the same on all of them. All calculations, messages and functions work and diplay as they should
+The game has been tested on different web browsers such as oprah, chrome, edge etc. The game works as it should and functions the same on all of them. All calculations, messages and functions work and diplay as they should.
 
 ### Bugs:
 
